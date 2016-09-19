@@ -1,0 +1,33 @@
+21 pts
+
+Ok team,
+
+- There was no project plan. The assignment clearly says "project plan: a
+  detailed semester plan that includes activities, deliverables, etc., that
+  your team will do, and it will also specify the activities of each individual
+  and their responsibilities;". What you submitted is not a plan.  -10pts
+
+- The user requirements need more details, it is too generic. Good user
+  requirements lead to good use cases, and to good use case diagrams.  -4pts
+
+- Use cases are poorly done. There are way too few of them. Furthermore, It
+  seems like the use cases are not defined. Use case diagram lacks description
+  of use cases. Thus, incomplete. Have you ever done this before? You should
+  have asked.  -5pts
+
+- There were no questions for customer attached whatsoever.  -10pts
+
+
+-- True Course
+
+- You really need to start taking this project seriously guys. You need to ask
+  questions and make progress. This is a terrible start! You can do better than
+  this. Whenever you have questions please ask. I'm happy to help you succeed
+  in this project.
+
+- Also, please see my notes in your paper for details.
+
+
+Peace,
+
+- Dr. Rivas
