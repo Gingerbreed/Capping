@@ -1,0 +1,64 @@
+/* W3.CSS 2.82 AppleExtension Apple iPhone all attempt by Thomas Evans */
+
+
+@media only screen and (min-device-width:320px) and (max-device-width:568px) and (-webkit-min-device-pixel-ratio: 2){
+.w3-col.a1p5{width:8.33333%}
+.w3-col.a2p5{width:16.66666%}
+.w3-col.a3p5{width:24.99999%}
+.w3-col.a4p5{width:33.33333%}
+.w3-col.a5p5{width:41.66666%}
+.w3-col.a6p5{width:49.99999%}
+.w3-col.a7p5{width:58.33333%}
+.w3-col.a8p5{width:66.66666%}
+.w3-col.a9p5{width:74.99999%}
+.w3-col.a10p5{width:83.33333%}
+.w3-col.a11p5{width:91.66666%}
+.w3-col.a12p5{width:99.99999%}
+.TC-full.a5{height:auto}
+.w3-ap5tiny{font-size:10px!important}.w3-ap5small{font-size:12px!important}
+.w3-ap5medium{font-size:15px!important}.w3-ap5large{font-size:18px!important}
+.w3-ap5xlarge{font-size:24px!important}.w3-ap5xxlarge{font-size:36px!important}
+.w3-ap5xxxlarge{font-size:48px!important}.w3-ap5jumbo{font-size:64px!important}
+.w3-ap5Super{font-size:64px!important}
+.w3-ap5hide{display:none!important}
+.TC-pad-top.ap5}
+@media only screen and (min-device-width:375px) and (max-device-width:677px) and (-webkit-min-device-pixel-ratio: 2){
+.w3-col.a1p6{width:8.33333%}
+.w3-col.a2p6{width:16.66666%}
+.w3-col.a3p6{width:24.99999%}
+.w3-col.a4p6{width:33.33333%}
+.w3-col.a5p6{width:41.66666%}
+.w3-col.a6p6{width:49.99999%}
+.w3-col.a7p6{width:58.33333%}
+.w3-col.a8p6{width:66.66666%}
+.w3-col.a9p6{width:74.99999%}
+.w3-col.a10p6{width:83.33333%}
+.w3-col.a11p6{width:91.66666%}
+.w3-col.a12p6{width:99.99999%}}
+@media only screen and (min-device-width:414px) and (max-device-width:736px) and (-webkit-min-device-pixel-ratio: 3){
+.w3-col.a1p6P{width:8.33333%}
+.w3-col.a2p6P{width:16.66666%}
+.w3-col.a3p6P{width:24.99999%}
+.w3-col.a4p6P{width:33.33333%}
+.w3-col.a5p6P{width:41.66666%}
+.w3-col.a6p6P{width:49.99999%}
+.w3-col.a7p6P{width:58.33333%}
+.w3-col.a8p6P{width:66.66666%}
+.w3-col.a9p6P{width:74.99999%}
+.w3-col.a10p6P{width:83.33333%}
+.w3-col.a11p6P{width:91.66666%}
+.w3-col.a12p6P{width:99.99999%}}
+
+@media only screen and (min-device-width:414px) and (max-device-width:736px) and (-webkit-min-device-pixel-ratio: 3){
+.w3-col.a1pd3-4{width:8.33333%}
+.w3-col.a2pd3-4{width:16.66666%}
+.w3-col.a3pd3-4{width:24.99999%}
+.w3-col.a4pd3-4{width:33.33333%}
+.w3-col.a5pd3-4{width:41.66666%}
+.w3-col.a6pd3-4{width:49.99999%}
+.w3-col.a7pd3-4{width:58.33333%}
+.w3-col.a8pd3-4{width:66.66666%}
+.w3-col.a9pd3-4{width:74.99999%}
+.w3-col.a10pd3-4{width:83.33333%}
+.w3-col.a11pd3-4{width:91.66666%}
+.w3-col.a12pd3-4{width:99.99999%}}
