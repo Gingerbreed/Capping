@@ -23,18 +23,17 @@ if ($_SESSION['loggedin'] !== TRUE) {
 		$trim = trim($_SESSION['username']);
 		echo notify($dbconn, $trim);
 		?></span> </a></li>
-        <li><a href="#contact">settings</a></li>
         <li class="w3-right"><a href="/logout.php">Logout</a></li>
     </ul>
     </div>
     <div class="w3-padding-24"></div>
-    <div class="w3-container w3-white w3-half">
+    <div class="w3-container w3-white w3-col a12p5 l6">
         <div class="w3-container">
       <!-- Responsive calendar - START -->
     	<div class="responsive-calendar">
         <div class="controls">
             <a class="pull-left" data-go="prev"><div class="btn w3-btn w3-round-xxlarge w3-indigo w3-grayscale-min w3-hover-blue btn-primary">Prev</div></a>
-            <h4 class="w3-xxlarge w3-padding-xlarge"><span data-head-year></span> <span data-head-month></span></h4>
+			<h4 class="w3-xlarge w3-padding-xlarge"><span data-head-year></span> <span data-head-month></span></h4>
             <a class="pull-right" data-go="next"><div class="btn w3-btn w3-round-xxlarge w3-indigo w3-grayscale-min w3-hover-blue btn-primary">Next</div></a>
         </div><hr/>
         <div class="day-headers">
@@ -53,6 +52,25 @@ if ($_SESSION['loggedin'] !== TRUE) {
       <!-- Responsive calendar - END -->
     </div>
 	<?php 
+	if ($_SERVER[ 'REQUEST_METHOD' ] == 'GET') {
+	$trim = trim($_SESSION['username']);
+	$dbc = adminconnect();
+	$query = "select count(*) from  clientcontacts where lifecoach ='$trim' and completed = false";
+	$result = pg_query($dbc,$query);
+	$count = pg_fetch_result($result,0,0);
+	$query = "SELECT client,dateofcontact,notes FROM clientcontacts
+		where lifecoach ='$trim'  and completed = false";
+	$results = pg_query($dbc,$query);
+	for($i=0;$i<$count;$i++){
+		if(isset($_GET['con'.$i])){
+		if($_GET['con'.$i]=='on'){
+			$row = pg_fetch_array($results,$i);
+			$query = "update clientcontacts set completed=true where lifecoach='$trim' and client='".$row['client']."' and dateofcontact='".$row['dateofcontact']."'";
+			$result = pg_query($dbc,$query);
+		}
+		}
+	}
+	}
 	if ($_SERVER[ 'REQUEST_METHOD' ] == 'POST') {
 	$db_conn = adminconnect();
 	$date =  validate($_POST['dateofcontact']);
@@ -98,7 +116,7 @@ if ($_SESSION['loggedin'] !== TRUE) {
     </script>
     </div>
     <div class="w3-row">
-    <div class="w3-container w3-white w3-grayscale-min w3-border-indigo w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-half w3-canter">
+    <div class="w3-container w3-white w3-grayscale-min w3-border-indigo w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-center w3-col a12p5 l6 m12 s12">
     
 	 Appointments
 		<?php
@@ -107,10 +125,12 @@ if ($_SESSION['loggedin'] !== TRUE) {
 		if(!$db_conn){
 			echo 'check connection :/';
 		}
+        
 		$trimmed = trim($_SESSION['username']);
 		$query = "SELECT fname, lname,completed, dateofcontact,notes FROM clientlist l, clientcontacts c 
 		where l.id = c.client and c.lifecoach ='$trimmed'  and completed = false";
 		$results = pg_query($db_conn,$query);
+		echo'<form action="/clientcontact.php" method="GET">';
         echo'<table class="w3-table w3-striped">
         <tr>
         <th>Appt. Date</th>
@@ -118,18 +138,23 @@ if ($_SESSION['loggedin'] !== TRUE) {
         <th>Completed</th>
 		<th>Notes</th>
         </tr>';
+		$var = 0;
 		while($row =  pg_fetch_array($results)){
 		echo'<tr>
         <td>'.$row['dateofcontact'].'</td>
         <td>'.$row['fname'].' '.$row['lname'].'</td>
-        <td>'.$row['completed'].'</td>
+        <td><input type="checkbox" class="w3-checkbox" name= "con'.$var.'" /> </td>
 		<td>'.$row['notes'].'</td>
         </tr>';
+		$var = $var + 1;
 		}
         echo'</table>';
-		?>
+        echo'<input class="w3-btn w3-indigo w3-grayscale-min w3-border w3-bottombar bw-border-gray w3-round-xlarge" type="submit" value="Update">';
+		echo'</form>';
+        ?>
+	<div class="w3-row">
 			New Appointment
-    <form action="/clientcontact.php" method="POST">
+    <form action="/clientcontact.php/" method="POST">
 		<?php 
 		$query = "SELECT fname, lname, id FROM clientlist
         where companyid ='".$_SESSION['company']."';";
@@ -137,7 +162,7 @@ if ($_SESSION['loggedin'] !== TRUE) {
         echo 'Client:<br>
 		<select class="w3-input w3-light-gray" name = "client">';
         while ($row = pg_fetch_array($results)) {
-        echo'<option value="'.$row['id'].'">'.$row[fname].' '.$row[lname].'</option>'; // Format for adding options 
+        echo'<option value="'.$row['id'].'">'.$row['fname'].' '.$row['lname'].'</option>'; // Format for adding options 
         }
         echo'</select><br>'?>
 		Date of Appointment:<br>
@@ -149,6 +174,7 @@ if ($_SESSION['loggedin'] !== TRUE) {
 
 	<input class="w3-btn w3-indigo w3-grayscale-min w3-border w3-bottombar bw-border-gray w3-round-xlarge" type="submit" value="Submit">
     </form>
+	</div>
     </div>    
     </div>
 </body>

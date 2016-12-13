@@ -78,7 +78,7 @@ ul.topnav li.right {float: right;}
 	$trim = trim($_SESSION['username']);
 	$query="select picture from people p, lifecoaches l where l.personid=p.id and username ='$trim'";
 	$result = pg_query($db_conn, $query);
-	echo'<img class="w3-circle w3-card-8" src="images/'.pg_fetch_result($result,0,0).'" style="width:75%" alt="[Picture of Client 1]">'?>
+	echo'<a href="/upload.form.php"><img class="w3-circle w3-card-8" src="images/'.pg_fetch_result($result,0,0).'" style="width:75%" alt="[Picture of Client 1]"></a>'?>
 	<br>
 	<p><?php
 		echo $_SESSION['coachname'];

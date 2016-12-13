@@ -40,7 +40,6 @@ if ($_SESSION['loggedin'] !== TRUE) {
 	$updateresults = pg_query($dbc,$update);
 	#echo $updateresults;
 	$update = "update people set address = '".$_POST['address']."', email = '".$_POST['email']."', picture = '$randomString' where id ='".$_GET['p']."';";
-	echo  $update. "<br>";
 	$updateresults = pg_query($dbc,$update);
 #	echo $updateresults;
 	}
